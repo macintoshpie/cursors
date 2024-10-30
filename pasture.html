@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grow</title>
+    <style>
+        :root {
+            --radius: 50px;
+        }
+
+        body {
+            background-color: #4CAF50;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .horse {
+            font: 20px sans-serif;
+            cursor: pointer;
+            transition: transform 32s linear;
+            
+            text-decoration: underline;
+        }
+
+        .horse:hover {
+            transition: transform 8s linear;
+            transform: translateX(500px);
+        }
+
+        .square {
+            width: 500px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: start;
+
+            border: 3px dashed #ffffff
+        }
+
+        .pasture {
+            background-color: #4CAF50;
+        }
+
+        .field {
+            background-color: #c0b327;
+            border: 3px dotted #ffffff;
+        }
+
+        h2 {
+            color:  #62c365;
+        }
+
+        .horse:nth-child(1) {
+            color: #A0522D;
+        }
+
+        .horse:nth-child(2) {
+            color: #808080;
+        }
+
+        .horse:nth-child(3) {
+            color: #E6C29F;
+        }
+
+        .horse:nth-child(4) {
+            color: #8B4513;
+            transition: transform 1000s linear;
+        }
+
+        .horse:nth-child(5) {
+            color: #0D0D0D;
+        }
+
+        .dog {
+            width: 50px;
+            height: 50px;
+            background-color: #4CAF50;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: -var(--radius) 0px; /* radius of the circle */
+            animation: moveCounterClockwise 5s linear infinite;
+          }
+          
+          @keyframes moveCounterClockwise {
+            0% {
+              transform: translate(calc(var(--radius) * 1), calc(var(--radius) * 0));
+            }
+            12.5% {
+              transform: translate(calc(var(--radius) * 0.707), calc(var(--radius) * -0.707)); /* top right diagonal */
+            }
+            25% {
+              transform: translate(calc(var(--radius) * 0), calc(var(--radius) * -1));
+            }
+            37.5% {
+              transform: translate(calc(var(--radius) * -0.707), calc(var(--radius) * -0.707)); /* top left diagonal */
+            }
+            50% {
+              transform: translate(calc(var(--radius) * -1), calc(var(--radius) * 0));
+            }
+            62.5% {
+              transform: translate(calc(var(--radius) * -0.707), calc(var(--radius) * 0.707)); /* bottom left diagonal */
+            }
+            75% {
+              transform: translate(calc(var(--radius) * 0), calc(var(--radius) * 1));
+            }
+            87.5% {
+              transform: translate(calc(var(--radius) * 0.707), calc(var(--radius) * 0.707)); /* bottom right diagonal */
+            }
+            100% {
+              transform: translate(calc(var(--radius) * 1), calc(var(--radius) * 0));
+            }
+          }
+    </style>
+</head>
+
+<body>
+    <div class="square pasture">
+        <h2>pasture</h2>
+        <p class="horse">horse</p>
+        <p class="horse">horse</p>
+        <p class="horse">horse</p>
+        <p class="horse">horse</p>
+    </div>
+    <div class="square field">
+        <h2>corn</h2>
+    </div>
+    <div class="square field">
+        <h2>corn</h2>
+    </div>
+    <div class="square pasture">
+
+    </div>
+    <p class="dog">dog</p>
+</body>

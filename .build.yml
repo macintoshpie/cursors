@@ -7,6 +7,5 @@ environment:
   domain: cursors.tedsummer.com
 tasks:
 - build: |
-    cd ${repo}
-    tar -cvzf "site.tar.gz" .
+    tar -cvzf "site.tar.gz" -C ${repo} .
     hut pages publish -d ${domain} -p HTTPS site.tar.gz

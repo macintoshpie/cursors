@@ -1,0 +1,12 @@
+image: alpine/edge
+oauth: pages.sr.ht/PAGES:RW
+packages:
+- hut
+environment:
+  repo: cursors
+  domain: cursors.tedsummer.com
+tasks:
+- build: |
+    cd ${repo}
+    tar -cvzf "site.tar.gz" .
+    hut pages publish -d ${domain} -p HTTPS site.tar.gz
